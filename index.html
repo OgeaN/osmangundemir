@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Login Successful</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #f5f6fa;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+    }
+    button {
+      padding: 14px 28px;
+      font-size: 16px;
+      background-color: #0078d7;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #005fa3;
+    }
+  </style>
+</head>
+<body>
+  <h2>✅ Login successful</h2>
+  <p>Click below to continue in the AvioTest app</p>
+  <button onclick="openApp()">Uygulamada Devam Et</button>
+
+  <script>
+    function openApp() {
+      const deepLink = "aviotest://auth?state=test123&code=abc456";
+      window.location.href = deepLink;
+
+      // Fallback: app yoksa mesaj göster
+      setTimeout(() => {
+        alert("Uygulama açılmadıysa lütfen elle başlatın.");
+      }, 2000);
+    }
+  </script>
+</body>
+</html>
