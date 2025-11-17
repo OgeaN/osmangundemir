@@ -1,0 +1,15 @@
+{
+  "AgilityScene": {
+    "Demo": {
+      "totalStimulusCount": 22,
+      "spawnDelay": 1.1,
+      "stimulusSpeed": 2.3,
+      "entryZoneGraceMs": 80,
+      "minValidResponseMs": 120
+    },
+    "Easy": {},
+    "Medium": {},
+    "Hard": {},
+    "Official": {}
+  }
+}
