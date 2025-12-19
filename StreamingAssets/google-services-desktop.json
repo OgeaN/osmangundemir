@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "468874101699",
+    "project_id": "aviotest-53f2f",
+    "storage_bucket": "aviotest-53f2f.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:468874101699:android:f6f7c8965b4589462cf376",
+        "android_client_info": {
+          "package_name": "com.keremhassoy.pace"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "468874101699-vjegk00bf2p4nos244ca078r76jt4obf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.keremhassoy.pace",
+            "certificate_hash": "62d7c4e4b722baecce6e6fe447701d30596014aa"
+          }
+        },
+        {
+          "client_id": "468874101699-0fqlof6qtq1an0s2odde3kql8li8p2mu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBul01hvy5xSS_ibdB7wFdzQyO8EmkUnSU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "468874101699-0fqlof6qtq1an0s2odde3kql8li8p2mu.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "468874101699-u00lfd2rulij0srj255fu5muslmiv5uo.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.keremhassoy.pace",
+                "app_store_id": "6749223028"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
