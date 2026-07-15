@@ -1,134 +1,228 @@
-<!DOCTYPE html>
-<html lang="en-us">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Unity Web Player | AvioTest</title>
-    <link rel="shortcut icon" href="TemplateData/favicon.ico">
-    <link rel="stylesheet" href="TemplateData/style.css">
-  </head>
-  <body>
-    <div id="unity-container" class="unity-desktop">
-      <canvas id="unity-canvas" width=960 height=600 tabindex="-1"></canvas>
-      <div id="unity-loading-bar">
-        <div id="unity-logo"></div>
-        <div id="unity-progress-bar-empty">
-          <div id="unity-progress-bar-full"></div>
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title data-i18n="meta.title">Osman Gündemir — Yazılım Geliştirici</title>
+<meta name="description" data-i18n="meta.desc" content="Osman Gündemir — Unity oyun geliştirici ve backend mühendisi. Yayınlanan mobil oyunlar, VR simülasyonları ve FastAPI backend projeleri." />
+<meta name="author" content="Osman Gündemir" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Osman Gündemir — Yazılım Geliştirici" />
+<meta property="og:description" content="Unity oyun geliştirici ve backend mühendisi." />
+<meta property="og:image" content="assets/img/aviotest-hero.jpg" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230B0E14'/%3E%3Ctext x='16' y='22' font-family='Consolas,monospace' font-size='15' font-weight='700' fill='%2356D4DD' text-anchor='middle'%3E&gt;_%3C/text%3E%3C/svg%3E" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<a class="skip-link" href="#main" data-i18n="nav.skip">İçeriğe geç</a>
+
+<header class="top">
+  <div class="top__in">
+    <span class="dots"><i></i><i></i><i></i></span>
+    <span class="path">osman@unity: <b>~/Assets</b></span>
+    <nav class="nav" aria-label="Ana menü">
+      <a href="#about" data-i18n="nav.about">hakkımda</a>
+      <a href="#exp" data-i18n="nav.exp">deneyim</a>
+      <a href="#work" data-i18n="nav.work">projeler</a>
+      <a href="#play" data-i18n="nav.play">oyun</a>
+      <a href="#skills" data-i18n="nav.skills">yetenekler</a>
+      <a href="#contact" data-i18n="nav.contact">iletişim</a>
+    </nav>
+    <button class="langbtn" id="lang" type="button" aria-label="Switch to English">EN</button>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero wrap" id="top">
+    <p class="hero__cmd"><span class="purple">Debug</span>.<span class="cyan">Log</span>(<span class="orange">"whoami"</span>);</p>
+    <h1>Osman <span class="b">Gündemir</span></h1>
+    <p class="hero__role"><span class="purple">public</span> <span class="cyan">Role</span> <span class="dim">=</span> <span class="rot" id="rot">Unity Geliştirici</span><span class="dim">;</span></p>
+    <p class="hero__pitch" data-i18n="hero.pitch">Oyun geliştirme, backend API ve yapay zeka alanlarında deneyimli bir yazılım geliştiriciyim. Google Play'de mobil oyunlar yayınladım, FastAPI ile RESTful API'ler kurdum ve Aselsan'da VR simülasyonları geliştirdim.</p>
+    <div class="cta">
+      <a class="btn btn--p" href="#work" data-i18n="hero.cta1">./projeler</a>
+      <a class="btn btn--g" href="#contact" data-i18n="hero.cta2">./iletişim</a>
+    </div>
+    <ul class="stats" aria-label="stats">
+      <li><span class="stats__k" data-i18n="s.dl">DOWNLOADS</span><b data-count="2000" data-suffix="+">0</b></li>
+      <li><span class="stats__k" data-i18n="s.co">STUDIOS</span><b data-count="4">0</b></li>
+      <li><span class="stats__k">GPA</span><b data-count="3.61" data-dec="2">0</b></li>
+      <li><span class="stats__k" data-i18n="s.pr">PROJECTS</span><b data-count="5" data-suffix="+">0</b></li>
+    </ul>
+  </section>
+
+  <section class="sec wrap reveal" id="about">
+    <p class="sec-h dim">// About.cs</p>
+    <h2 class="h2"><span class="kw">void</span> <span class="fn">About</span><span class="br">()</span></h2>
+    <div class="about">
+      <div>
+        <p class="about__body" data-i18n="about.body">Konya Teknik Üniversitesi Bilgisayar Mühendisliği mezunuyum. Freelance ve ekip ortamlarında; Unity ile oyun ve simülasyon, Python/FastAPI ile backend servisleri, PyTorch ile yapay zeka modelleri üzerine çalıştım. İşin hem istemci hem sunucu tarafını uçtan uca kurmayı seviyorum.</p>
+        <div class="kv">
+          <div class="row"><span class="key">edu</span><span class="val" data-i18n="about.school">Konya Teknik Üniversitesi · Bilgisayar Müh.</span></div>
+          <div class="row"><span class="key">gpa</span><span class="val">3.61 / 4.00 · 2021–2025</span></div>
+          <div class="row"><span class="key">lang</span><span class="val" data-i18n="about.langs">Türkçe (ana dil) · İngilizce (B1)</span></div>
+          <div class="row"><span class="key">loc</span><span class="val">Konya, TR</span></div>
         </div>
       </div>
-      <div id="unity-warning"> </div>
-      <div id="unity-footer">
-        <div id="unity-logo-title-footer"></div>
-        <div id="unity-fullscreen-button"></div>
-        <div id="unity-build-title">AvioTest</div>
-      </div>
+      <figure class="photo"><img src="assets/img/headshot.jpg" alt="Osman Gündemir" width="640" height="640" loading="lazy"></figure>
     </div>
-    <script>
-      var canvas = document.querySelector("#unity-canvas");
+  </section>
 
-      // Shows a temporary message banner/ribbon for a few seconds, or
-      // a permanent error message on top of the canvas if type=='error'.
-      // If type=='warning', a yellow highlight color is used.
-      // Modify or remove this function to customize the visually presented
-      // way that non-critical warnings and error messages are presented to the
-      // user.
-      function unityShowBanner(msg, type) {
-        var warningBanner = document.querySelector("#unity-warning");
-        function updateBannerVisibility() {
-          warningBanner.style.display = warningBanner.children.length ? 'block' : 'none';
-        }
-        var div = document.createElement('div');
-        div.innerHTML = msg;
-        warningBanner.appendChild(div);
-        if (type == 'error') div.style = 'background: red; padding: 10px;';
-        else {
-          if (type == 'warning') div.style = 'background: yellow; padding: 10px;';
-          setTimeout(function() {
-            warningBanner.removeChild(div);
-            updateBannerVisibility();
-          }, 5000);
-        }
-        updateBannerVisibility();
-      }
+  <section class="sec wrap reveal" id="exp">
+    <p class="sec-h dim">// Experience.cs</p>
+    <h2 class="h2"><span class="kw">public class</span> <span class="fn">Experience</span></h2>
+    <div class="jobs">
+      <article class="job">
+        <div class="job__h"><h3 class="job__role" data-i18n="exp.a.r">Freelance Unity & Backend Developer</h3><span class="job__date">2025 – 2026</span></div>
+        <p class="job__org">AvioTest</p>
+        <ul><li data-i18n="exp.a.p1">Unity ile tüm istemci tarafını geliştirdim: sınav ekranları, UI/UX akışı, zamanlayıcı ve çoktan seçmeli soru yapısı.</li><li data-i18n="exp.a.p2">Joystick girişiyle uçuş simülasyonu modülü kurdum; gerçek zamanlı horizon ekranı üzerinden irtifa/yön/hız kontrolü sağladım.</li><li data-i18n="exp.a.p3">Python/FastAPI ile RESTful API geliştirip Railway'de deploy ettim.</li></ul>
+        <div class="chips"><span class="chip">Unity</span><span class="chip">C#</span><span class="chip">FastAPI</span><span class="chip">Python</span><span class="chip">Railway</span></div>
+      </article>
+      <article class="job">
+        <div class="job__h"><h3 class="job__role" data-i18n="exp.b.r">Unity Developer — Simulation Team</h3><span class="job__date">2024 – 2025</span></div>
+        <p class="job__org">Aselsan Konya</p>
+        <ul><li data-i18n="exp.b.p1">Savunma sektörü senaryoları için Unity ile VR tabanlı eğitim simülasyonları geliştirdim.</li><li data-i18n="exp.b.p2">HTC Vive ve XR Toolkit entegrasyonu ile sürükleyici kullanıcı etkileşimi sağladım.</li><li data-i18n="exp.b.p3">Yüksek gerçeklikli gerçek zamanlı ortamlarda performans optimizasyonları yaptım.</li></ul>
+        <div class="chips"><span class="chip">Unity</span><span class="chip">HTC Vive</span><span class="chip">XR Toolkit</span><span class="chip">VR</span></div>
+      </article>
+      <article class="job">
+        <div class="job__h"><h3 class="job__role" data-i18n="exp.c.r">Intern AI Developer</h3><span class="job__date">2024</span></div>
+        <p class="job__org">Atiker Software</p>
+        <ul><li data-i18n="exp.c.p1">PyTorch ve HuggingFace Transformers ile Türkçe GPT-2 dil modellerini fine-tune ettim.</li><li data-i18n="exp.c.p2">Eğitilmiş modelleri yerel cihazlara deploy ederek inference testleri gerçekleştirdim.</li></ul>
+        <div class="chips"><span class="chip">PyTorch</span><span class="chip">HuggingFace</span><span class="chip">GPT-2</span></div>
+      </article>
+      <article class="job">
+        <div class="job__h"><h3 class="job__role" data-i18n="exp.d.r">Intern Mobile Game Developer</h3><span class="job__date">2023</span></div>
+        <p class="job__org">Berka Software</p>
+        <ul><li data-i18n="exp.d.p1">Flutter ile mobil uygulamalar geliştirdim; UI ve kullanıcı deneyimine odaklandım.</li><li data-i18n="exp.d.p2">C# ile API entegrasyonları kurup istemciyi backend'e bağladım; MongoDB kullandım.</li></ul>
+        <div class="chips"><span class="chip">Flutter</span><span class="chip">C#</span><span class="chip">MongoDB</span></div>
+      </article>
+    </div>
+  </section>
 
-      var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/AviotestBuildWeb7.loader.js";
-      var config = {
-        arguments: [],
-        dataUrl: buildUrl + "/AviotestBuildWeb7.data",
-        frameworkUrl: buildUrl + "/AviotestBuildWeb7.framework.js",
-        codeUrl: buildUrl + "/AviotestBuildWeb7.wasm",
-        streamingAssetsUrl: "StreamingAssets",
-        companyName: "Kerem Hassoy",
-        productName: "AvioTest",
-        productVersion: "0.2.40",
-        showBanner: unityShowBanner,
-        // errorHandler: function(err, url, line) {
-        //    alert("error " + err + " occurred at line " + line);
-        //    // Return 'true' if you handled this error and don't want Unity
-        //    // to process it further, 'false' otherwise.
-        //    return true;
-        // },
-      };
+  <section class="sec wrap reveal" id="work">
+    <p class="sec-h dim">// Scene: Projects</p>
+    <h2 class="h2"><span class="kw">GameObject</span><span class="br">[]</span> <span class="fn">Projects</span></h2>
+    <p class="lead" data-i18n="work.lead">// Yayınlanan oyunlardan savunma simülasyonlarına — seçili projeler.</p>
 
-      // By default, Unity keeps WebGL canvas render target size matched with
-      // the DOM size of the canvas element (scaled by window.devicePixelRatio)
-      // Set this to false if you want to decouple this synchronization from
-      // happening inside the engine, and you would instead like to size up
-      // the canvas DOM size and WebGL render target sizes yourself.
-      // config.matchWebGLToCanvasSize = false;
+    <article class="proj">
+      <div class="proj__bar"><span class="dots"><i></i><i></i><i></i></span><span>AvioTest.unity</span></div>
+      <div class="proj__grid">
+        <div class="proj__info">
+          <div class="proj__head"><img class="proj__icon" src="assets/img/aviotest-icon.jpg" alt="AvioTest" width="256" height="256" loading="lazy"><div><h3 class="proj__title">AvioTest</h3><p class="proj__sub" data-i18n="p.avio.sub">Cadet Pilot · Psikometrik Sınav</p></div><span class="pill pill--free" data-i18n="pill.free">freelance</span></div>
+          <p class="proj__desc" data-i18n="p.avio.desc">Cadet pilot adayları için sınav ve uçuş simülasyonu. Unity istemci + FastAPI backend; joystick ile gerçek zamanlı irtifa/yön/hız kontrolü. iOS, Android, web ve masaüstünde çalışıyor.</p>
+          <div class="chips"><span class="chip">Unity</span><span class="chip">C#</span><span class="chip">FastAPI</span><span class="chip">Python</span></div>
+          <div class="stores">
+            <a class="store" href="https://aviotest.org/" target="_blank" rel="noopener" data-i18n="store.web">🌐 web</a>
+            <a class="store" href="https://play.google.com/store/apps/details?id=com.keremhassoy.pace" target="_blank" rel="noopener">▶ play</a>
+            <a class="store" href="https://apps.apple.com/tr/app/aviotest-psikometrik-s%C4%B1nav/id6749223028?l=tr" target="_blank" rel="noopener"> app store</a>
+            <a class="store store--dl" href="https://aviotest.org/download/" target="_blank" rel="noopener" data-i18n="store.dl">⬇ indir</a>
+          </div>
+        </div>
+        <div class="proj__media"><div class="gal gal--tall" data-gal><div class="gframe"><button class="gnav gnav--prev" type="button" data-prev aria-label="Önceki">‹</button><div class="gtrack" data-track tabindex="0" aria-label="AvioTest görselleri"><figure class="gslide"><img src="assets/img/aviotest-hero.jpg" alt="AvioTest — pilot seçim sınavları" loading="lazy"></figure><figure class="gslide"><img src="assets/img/aviotest-crossplatform.jpg" alt="AvioTest — cross platform" loading="lazy"></figure><figure class="gslide"><img src="assets/img/aviotest-spatial.jpg" alt="AvioTest — spatial skills" loading="lazy"></figure><figure class="gslide"><img src="assets/img/aviotest-devices.jpg" alt="AvioTest — tüm cihazlar" loading="lazy"></figure></div><button class="gnav gnav--next" type="button" data-next aria-label="Sonraki">›</button><span class="gcount" data-count>1/4</span></div><div class="gdots" data-dots aria-hidden="true"></div></div></div>
+      </div>
+    </article>
 
-      // If you would like all file writes inside Unity Application.persistentDataPath
-      // directory to automatically persist so that the contents are remembered when
-      // the user revisits the site the next time, uncomment the following line:
-      // config.autoSyncPersistentDataPath = true;
-      // This autosyncing is currently not the default behavior to avoid regressing
-      // existing user projects that might rely on the earlier manual
-      // JS_FileSystem_Sync() behavior, but in future Unity version, this will be
-      // expected to change.
+    <article class="proj proj--rev">
+      <div class="proj__bar"><span class="dots"><i></i><i></i><i></i></span><span>AselsanVR.prefab</span></div>
+      <div class="proj__grid">
+        <div class="proj__info">
+          <div class="proj__head"><div><h3 class="proj__title" data-i18n="p.asel.t">VR Savunma Simülasyonu</h3><p class="proj__sub" data-i18n="p.asel.sub">Aselsan Konya · Simülasyon Ekibi</p></div><span class="pill pill--asel">aselsan</span></div>
+          <p class="proj__desc" data-i18n="p.asel.desc">Savunma eğitimi için Unity ve HTC Vive ile geliştirilen VR tabanlı simülasyon. Gerçekçi ortamlar, kullanıcı etkileşim sistemleri ve performans optimizasyonları.</p>
+          <div class="chips"><span class="chip">Unity</span><span class="chip">HTC Vive</span><span class="chip">XR Toolkit</span><span class="chip">VR</span></div>
+        </div>
+        <div class="proj__media"><div class="gal" data-gal><div class="gframe"><button class="gnav gnav--prev" type="button" data-prev aria-label="Önceki">‹</button><div class="gtrack" data-track tabindex="0" aria-label="Aselsan görselleri"><figure class="gslide"><img src="assets/img/aselsan-vr-setup.jpg" alt="Aselsan VR kurulumu" loading="lazy"></figure><figure class="gslide"><img src="assets/img/aselsan-vr-demo.jpg" alt="Aselsan VR demo" loading="lazy"></figure><figure class="gslide"><img src="assets/img/aselsan-cert.jpg" alt="Aselsan sertifika" loading="lazy"></figure><figure class="gslide"><img src="assets/img/aselsan-team.jpg" alt="Aselsan ekip" loading="lazy"></figure></div><button class="gnav gnav--next" type="button" data-next aria-label="Sonraki">›</button><span class="gcount" data-count>1/4</span></div><div class="gdots" data-dots aria-hidden="true"></div></div></div>
+      </div>
+    </article>
 
-      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
-        // Mobile device style: fill the whole browser client area with the game canvas:
+    <article class="proj">
+      <div class="proj__bar"><span class="dots"><i></i><i></i><i></i></span><span>MelonMerger.unity</span></div>
+      <div class="proj__grid">
+        <div class="proj__info">
+          <div class="proj__head"><img class="proj__icon" src="assets/img/melon-icon.jpg" alt="Melon Merger" width="256" height="256" loading="lazy"><div><h3 class="proj__title">Melon Merger</h3><p class="proj__sub" data-i18n="p.melon.sub">Mobil Oyun · 2000+ indirme</p></div><span class="pill pill--play">google play</span></div>
+          <p class="proj__desc" data-i18n="p.melon.desc">Birleştirme mekaniğine dayalı mobil oyun. 2.000'den fazla indirme. Fizik tabanlı etkileşimler ve Android için optimize edilmiş oynanış.</p>
+          <div class="chips"><span class="chip">Unity</span><span class="chip">C#</span><span class="chip">Physics</span></div>
+          <div class="stores"><a class="store store--dl" href="https://play.google.com/store/apps/details?id=com.SamanGames.MelonMerge" target="_blank" rel="noopener">▶ google play</a></div>
+        </div>
+        <div class="proj__media"><div class="gal gal--tall" data-gal><div class="gframe"><button class="gnav gnav--prev" type="button" data-prev aria-label="Önceki">‹</button><div class="gtrack" data-track tabindex="0" aria-label="Melon Merger görselleri"><figure class="gslide"><img src="assets/img/melon-gameplay.jpg" alt="Melon Merger oynanış" loading="lazy"></figure><figure class="gslide"><img src="assets/img/melon-shop.jpg" alt="Melon Merger mağaza" loading="lazy"></figure></div><button class="gnav gnav--next" type="button" data-next aria-label="Sonraki">›</button><span class="gcount" data-count>1/2</span></div><div class="gdots" data-dots aria-hidden="true"></div></div></div>
+      </div>
+    </article>
 
-        var meta = document.createElement('meta');
-        meta.name = 'viewport';
-        meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
-        document.getElementsByTagName('head')[0].appendChild(meta);
-        document.querySelector("#unity-container").className = "unity-mobile";
-        canvas.className = "unity-mobile";
+    <article class="proj proj--rev">
+      <div class="proj__bar"><span class="dots"><i></i><i></i><i></i></span><span>MineUp.unity</span></div>
+      <div class="proj__grid">
+        <div class="proj__info">
+          <div class="proj__head"><div><h3 class="proj__title">Mine Up</h3><p class="proj__sub" data-i18n="p.mine.sub">Mobil Oyun · Dikey Platform</p></div><span class="pill pill--play">google play</span></div>
+          <p class="proj__desc" data-i18n="p.mine.desc">Google Play'de yayınlanan dikey platform oyunu. Seviye tasarımı, fizik tabanlı zıplama, checkpoint sistemi ve dinamik kamera kontrolü.</p>
+          <div class="chips"><span class="chip">Unity</span><span class="chip">C#</span><span class="chip">Level Design</span></div>
+        </div>
+        <div class="proj__media"><div class="gal gal--tall" data-gal><div class="gframe"><button class="gnav gnav--prev" type="button" data-prev aria-label="Önceki">‹</button><div class="gtrack" data-track tabindex="0" aria-label="Mine Up görselleri"><figure class="gslide"><img src="assets/img/mineup-gameplay.jpg" alt="Mine Up oynanış" loading="lazy"></figure><figure class="gslide"><img src="assets/img/mineup-play.jpg" alt="Mine Up — platform zıplama" loading="lazy"></figure><figure class="gslide"><img src="assets/img/mineup-menu.jpg" alt="Mine Up — ana menü" loading="lazy"></figure></div><button class="gnav gnav--next" type="button" data-next aria-label="Sonraki">›</button><span class="gcount" data-count>1/3</span></div><div class="gdots" data-dots aria-hidden="true"></div></div></div>
+      </div>
+    </article>
 
-        // To lower canvas resolution on mobile devices to gain some
-        // performance, uncomment the following line:
-        // config.devicePixelRatio = 1;
+    <article class="proj">
+      <div class="proj__bar"><span class="dots"><i></i><i></i><i></i></span><span>DualShot.unity</span></div>
+      <div class="proj__grid">
+        <div class="proj__info">
+          <div class="proj__head"><div><h3 class="proj__title">DualShot</h3><p class="proj__sub" data-i18n="p.dual.sub">Mezuniyet Projesi · 2D Nişancı</p></div><span class="pill pill--grad" data-i18n="pill.grad">mezuniyet</span></div>
+          <p class="proj__desc" data-i18n="p.dual.desc">Unity ve URP ile geliştirilen 2D dalga tabanlı nişancı oyunu. Çift atış sistemi, envanter yönetimi ve boss AI davranışı.</p>
+          <div class="chips"><span class="chip">Unity</span><span class="chip">URP</span><span class="chip">C#</span><span class="chip">AI</span></div>
+          <a class="ghlink" href="https://github.com/OgeaN/DualShot" target="_blank" rel="noopener">→ github.com/OgeaN/DualShot</a>
+        </div>
+        <div class="proj__media"><div class="gal" data-gal><div class="gframe"><button class="gnav gnav--prev" type="button" data-prev aria-label="Önceki">‹</button><div class="gtrack" data-track tabindex="0" aria-label="DualShot görselleri"><figure class="gslide"><img src="assets/img/dualshot-gameplay.jpg" alt="DualShot oynanış" loading="lazy"></figure><figure class="gslide"><img src="assets/img/dualshot-weapons.jpg" alt="DualShot silahlar" loading="lazy"></figure></div><button class="gnav gnav--next" type="button" data-next aria-label="Sonraki">›</button><span class="gcount" data-count>1/2</span></div><div class="gdots" data-dots aria-hidden="true"></div></div></div>
+      </div>
+    </article>
+  </section>
 
+  <section class="sec wrap reveal" id="play">
+    <p class="sec-h dim">// Playground.unity</p>
+    <h2 class="h2"><span class="kw">IEnumerator</span> <span class="fn">PlayGame</span><span class="br">()</span></h2>
+    <p class="lead" data-i18n="play.lead">// Tarayıcıda oynanabilir WebGL oyunum yakında burada olacak.</p>
+    <div class="playground">
+      <div class="playground__screen" id="playScreen">
+        <!-- WebGL oyun buraya gelecek. Unity WebGL build'ini şu şekilde göm:
+             <iframe src="game/index.html" title="WebGL Oyun" allow="fullscreen"></iframe>
+             ya da bir kanvas + loader. Şimdilik "coming soon" ekranı gösteriliyor. -->
+        <div class="playground__soon">
+          <div class="playground__badge mono">● BUILDING</div>
+          <p class="playground__title" data-i18n="play.title">WebGL Oyun</p>
+          <p class="playground__sub mono" data-i18n="play.sub">Unity WebGL build yükleniyor...</p>
+          <div class="loadbar" aria-hidden="true"><span></span></div>
+          <button class="btn btn--g" id="playBtn" type="button" data-i18n="play.btn">▶ Yakında Oyna</button>
+        </div>
+      </div>
+      <p class="playground__note mono dim" data-i18n="play.note">// Not: Buraya kendi Unity WebGL oyunumu ekleyeceğim.</p>
+    </div>
+  </section>
 
-      } else {
-        // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
-        canvas.style.width = "960px";
-        canvas.style.height = "600px";
-      }
+  <section class="sec wrap reveal" id="skills">
+    <p class="sec-h dim">// Skills.cs</p>
+    <h2 class="h2"><span class="kw">void</span> <span class="fn">Skills</span><span class="br">()</span></h2>
+    <div class="skills">
+      <div class="skillbox"><h3 data-i18n="sk.game">gameDev</h3><div class="chips"><span class="chip">Unity</span><span class="chip">C#</span><span class="chip">URP</span><span class="chip">Physics</span><span class="chip">Input System</span><span class="chip">Animator</span></div></div>
+      <div class="skillbox"><h3 data-i18n="sk.back">backend</h3><div class="chips"><span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">REST</span><span class="chip">Railway</span></div></div>
+      <div class="skillbox"><h3 data-i18n="sk.vr">vrAr</h3><div class="chips"><span class="chip">HTC Vive</span><span class="chip">XR Toolkit</span></div></div>
+      <div class="skillbox"><h3 data-i18n="sk.ai">ai</h3><div class="chips"><span class="chip">PyTorch</span><span class="chip">HuggingFace</span></div></div>
+      <div class="skillbox"><h3 data-i18n="sk.db">databases</h3><div class="chips"><span class="chip">Firebase</span><span class="chip">MongoDB</span><span class="chip">MSSQL</span></div></div>
+      <div class="skillbox"><h3 data-i18n="sk.tools">tools</h3><div class="chips"><span class="chip">Git</span><span class="chip">Rider</span><span class="chip">VS</span></div></div>
+    </div>
+  </section>
 
-      canvas.style.background = "url('" + buildUrl + "/AviotestBuildWeb7.jpg') center / cover";
-      document.querySelector("#unity-loading-bar").style.display = "block";
+  <section class="sec wrap reveal contact" id="contact">
+    <p class="sec-h dim">// Contact.cs</p>
+    <h2 class="h2"><span class="kw">void</span> <span class="fn">Contact</span><span class="br">()</span></h2>
+    <p class="lead" data-i18n="c.body">// Yeni bir proje, freelance iş ya da tam zamanlı bir fırsat için ulaşabilirsiniz.</p>
+    <div class="cta">
+      <a class="btn btn--p" href="mailto:osmangundemir1@gmail.com">osmangundemir1@gmail.com</a>
+      <a class="btn btn--g" href="tel:+905354101826">+90 535 410 18 26</a>
+    </div>
+    <div class="clinks">
+      <a href="https://github.com/OgeaN" target="_blank" rel="noopener">→ github</a>
+      <a href="https://www.linkedin.com/in/osman-g%C3%BCndemir-594053267/" target="_blank" rel="noopener">→ linkedin</a>
+      <a href="mailto:osmangundemir1@gmail.com">→ email</a>
+    </div>
+  </section>
+</main>
+<footer class="foot wrap"><div class="foot__in"><span>© <span id="yr">2026</span> Osman Gündemir</span><span class="dim">built with Unity + FastAPI</span></div></footer>
 
-      var script = document.createElement("script");
-      script.src = loaderUrl;
-      script.onload = () => {
-        createUnityInstance(canvas, config, (progress) => {
-          document.querySelector("#unity-progress-bar-full").style.width = 100 * progress + "%";
-              }).then((unityInstance) => {
-                document.querySelector("#unity-loading-bar").style.display = "none";
-                document.querySelector("#unity-fullscreen-button").onclick = () => {
-                  unityInstance.SetFullscreen(1);
-                };
-
-              }).catch((message) => {
-                alert(message);
-              });
-            };
-
-      document.body.appendChild(script);
-
-    </script>
-  </body>
+<script src="main.js"></script>
+</body>
 </html>
