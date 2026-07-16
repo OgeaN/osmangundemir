@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title data-i18n="meta.title">Oyun — Osman Gündemir</title>
+<meta name="description" data-i18n="meta.desc" content="Osman Gündemir — tarayıcıda oynanabilir Unity WebGL oyunu." />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230B0E14'/%3E%3Ctext x='16' y='22' font-family='Consolas,monospace' font-size='15' font-weight='700' fill='%2356D4DD' text-anchor='middle'%3E&gt;_%3C/text%3E%3C/svg%3E" />
+<link rel="stylesheet" href="style.css" />
+<style>
+/* game page-specific layout */
+.game-main{min-height:calc(100vh - 60px);display:flex;flex-direction:column;position:relative;z-index:1}
+.game-head{padding:clamp(2rem,6vw,3.5rem) 0 1rem}
+.game-head .back{display:inline-flex;align-items:center;gap:.4rem;color:var(--dim);font-size:.9rem;transition:.15s}
+.game-head .back:hover{color:var(--cyan)}
+.game-head .back::before{content:"← "}
+.game-head h1{font-family:var(--mono);font-size:clamp(1.7rem,4.5vw,2.6rem);font-weight:700;letter-spacing:-.02em;margin:.9rem 0 .3rem}
+.game-head h1 .kw{color:var(--pink)}.game-head h1 .fn{color:var(--cyan)}.game-head h1 .br{color:var(--dim)}
+.game-head .lead{color:var(--dim);max-width:60ch}
+.stage-wrap{flex:1;display:flex;flex-direction:column;padding-bottom:clamp(2rem,5vw,3.5rem)}
+.stage{position:relative;flex:1;min-height:min(72vh,620px);border:1px solid var(--line2);border-radius:14px;overflow:hidden;background:radial-gradient(120% 120% at 50% 0%,rgba(179,146,240,.08),transparent 65%),#06080D;box-shadow:0 20px 50px rgba(0,0,0,.5)}
+.stage iframe,.stage canvas{width:100%;height:100%;border:0;display:block}
+.stage::before{content:"";position:absolute;inset:0;pointer-events:none;z-index:1;background-image:repeating-linear-gradient(0deg,rgba(86,212,221,.04) 0 2px,transparent 2px 4px);opacity:.6}
+.stage__soon{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;text-align:center;padding:1.5rem;z-index:2}
+.stage__badge{font-family:var(--mono);font-size:.72rem;letter-spacing:.18em;color:var(--orange);border:1px solid var(--orange);border-radius:20px;padding:.2rem .7rem;animation:pulse 1.8s ease-in-out infinite}
+@keyframes pulse{50%{opacity:.4}}
+@media (prefers-reduced-motion:reduce){.stage__badge{animation:none}}
+.stage__title{font-family:var(--mono);font-size:clamp(1.8rem,5vw,3rem);font-weight:700;color:var(--ink);letter-spacing:-.02em}
+.stage__sub{font-family:var(--mono);font-size:.9rem;color:var(--dim)}
+.stage__note{margin-top:1rem;font-family:var(--mono);font-size:.82rem;color:var(--dim)}
+.stage__host{position:absolute;inset:0;z-index:0}
+.stage__host canvas{display:block;width:100%;height:100%;touch-action:none;cursor:crosshair}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#stage" data-i18n="nav.skip">İçeriğe geç</a>
+
+<header class="top">
+  <div class="top__in">
+    <span class="dots"><i></i><i></i><i></i></span>
+    <span class="path">osman@unity: <b>~/Builds</b></span>
+    <nav class="nav" aria-label="Menü">
+      <a href="index.html#about" data-i18n="nav.about">hakkımda</a>
+      <a href="index.html#exp" data-i18n="nav.exp">deneyim</a>
+      <a href="index.html#work" data-i18n="nav.work">projeler</a>
+      <a href="index.html#skills" data-i18n="nav.skills">yetenekler</a>
+      <a href="index.html#contact" data-i18n="nav.contact">iletişim</a>
+    </nav>
+    <button class="langbtn" id="lang" type="button" aria-label="Switch to English">EN</button>
+  </div>
+</header>
+
+<main class="game-main wrap" id="main">
+  <div class="game-head">
+    <a class="back" href="index.html" data-i18n="game.back">Ana sayfaya dön</a>
+    <h1><span class="kw">IEnumerator</span> <span class="fn">PlayGame</span><span class="br">()</span></h1>
+    <p class="lead" data-i18n="game.lead">// Defend Your Stack — gerçek bilgilerimi (yeşil ✓) VURMA, sahte olanları (kırmızı ✕) VUR.</p>
+  </div>
+
+  <div class="stage-wrap">
+    <div class="stage" id="stage">
+      <!-- Canvas mini-game mounts here. To swap in a Unity WebGL build later:
+           put the build in a  game/  folder and replace #gameHost with
+           <iframe src="game/index.html" title="WebGL Game" allow="autoplay; fullscreen"></iframe> -->
+      <div class="stage__host" id="gameHost"></div>
+    </div>
+    <!-- <p class="stage__note" data-i18n="game.note">// Mini oyun · HTML5 Canvas ile yapıldı. İleride bir Unity WebGL sürümüyle değiştirebilirim.</p> -->
+  </div>
+</main>
+
+<footer class="foot wrap"><div class="foot__in"><span>© <span id="yr">2026</span> Osman Gündemir</span><span class="dim">built with Unity + FastAPI</span></div></footer>
+
+<script>
+(function(){
+"use strict";
+var reduce=window.matchMedia("(prefers-reduced-motion:reduce)").matches;
+var I={
+ tr:{"meta.title":"Oyun — Osman Gündemir","meta.desc":"Osman Gündemir — tarayıcıda oynanabilir Unity WebGL oyunu.",
+  "nav.skip":"İçeriğe geç","nav.about":"hakkımda","nav.exp":"deneyim","nav.work":"projeler","nav.skills":"yetenekler","nav.contact":"iletişim",
+  "game.back":"Ana sayfaya dön","game.lead":"// Defend Your Stack — gerçek bilgilerimi (yeşil ✓) VURMA, sahte olanları (kırmızı ✕) VUR.",
+  "game.note":"// Mini oyun · HTML5 Canvas ile yapıldı. İleride bir Unity WebGL sürümüyle değiştirebilirim."},
+ en:{"meta.title":"Game — Osman Gündemir","meta.desc":"Osman Gündemir — a playable browser mini-game.",
+  "nav.skip":"Skip to content","nav.about":"about","nav.exp":"experience","nav.work":"work","nav.skills":"skills","nav.contact":"contact",
+  "game.back":"Back to home","game.lead":"// Defend Your Stack — do NOT shoot my real facts (green ✓), SHOOT the false ones (red ✕).",
+  "game.note":"// Mini-game · built with HTML5 Canvas. I may swap in a Unity WebGL version later."}
+};
+var btn=document.getElementById("lang");
+function set(l){if(!I[l])l="tr";var d=I[l];document.documentElement.lang=l;
+  document.querySelectorAll("[data-i18n]").forEach(function(e){var v=d[e.getAttribute("data-i18n")];if(v==null)return;if(e.tagName==="TITLE"){document.title=v;return;}if(e.tagName==="META"){e.setAttribute("content",v);return;}e.textContent=v;});
+  if(btn){btn.textContent=(l==="tr"?"EN":"TR");btn.setAttribute("aria-label",l==="tr"?"Switch to English":"Türkçe'ye geç");}
+  if(window.__gameSetLang)window.__gameSetLang(l);
+  try{localStorage.setItem("og_lang",l);}catch(e){}}
+var sv=null;try{sv=localStorage.getItem("og_lang");}catch(e){}
+set(sv||((navigator.language||"tr").toLowerCase().indexOf("tr")===0?"tr":"en"));
+if(btn)btn.addEventListener("click",function(){set(document.documentElement.lang==="tr"?"en":"tr");});
+var yr=document.getElementById("yr");if(yr)yr.textContent=String(new Date().getFullYear());
+})();
+</script>
+<script src="game.js"></script>
+</body>
+</html>

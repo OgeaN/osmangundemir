@@ -11,7 +11,6 @@ var I={
   "meta.title":"Osman Gündemir — Yazılım Geliştirici",
   "meta.desc":"Osman Gündemir — Unity oyun geliştirici ve backend mühendisi. Yayınlanan mobil oyunlar, VR simülasyonları ve FastAPI backend projeleri.",
   "nav.skip":"İçeriğe geç","nav.about":"hakkımda","nav.exp":"deneyim","nav.work":"projeler","nav.play":"oyun","nav.skills":"yetenekler","nav.contact":"iletişim",
-  "play.lead":"// Tarayıcıda oynanabilir WebGL oyunum yakında burada olacak.","play.title":"WebGL Oyun","play.sub":"Unity WebGL build yükleniyor...","play.btn":"▶ Yakında Oyna","play.btnSoon":"⏳ Çok yakında!","play.note":"// Not: Buraya kendi Unity WebGL oyunumu ekleyeceğim.",
   "hero.lead":"// rol:","hero.roles":"Unity Geliştirici|Backend Mühendisi|Oyun Geliştirici|VR Geliştirici",
   "hero.pitch":"Oyun geliştirme, backend API ve yapay zeka alanlarında deneyimli bir yazılım geliştiriciyim. Google Play'de mobil oyunlar yayınladım, FastAPI ile RESTful API'ler kurdum ve Aselsan'da VR simülasyonları geliştirdim.",
   "hero.cta1":"./projeler","hero.cta2":"./iletişim",
@@ -35,7 +34,6 @@ var I={
   "meta.title":"Osman Gündemir — Software Developer",
   "meta.desc":"Osman Gündemir — Unity game developer and backend engineer. Published mobile games, VR simulations and FastAPI backend projects.",
   "nav.skip":"Skip to content","nav.about":"about","nav.exp":"experience","nav.work":"work","nav.play":"game","nav.skills":"skills","nav.contact":"contact",
-  "play.lead":"// My playable WebGL game will be here soon.","play.title":"WebGL Game","play.sub":"Loading Unity WebGL build...","play.btn":"▶ Play soon","play.btnSoon":"⏳ Coming very soon!","play.note":"// Note: I'll embed my own Unity WebGL game here.",
   "hero.lead":"// role:","hero.roles":"Unity Developer|Backend Engineer|Game Developer|VR Developer",
   "hero.pitch":"A software developer experienced in game development, backend APIs and AI. I've published mobile games on Google Play, built RESTful APIs with FastAPI, and developed VR simulations at Aselsan.",
   "hero.cta1":"./work","hero.cta2":"./contact",
@@ -121,10 +119,6 @@ if(cs.length&&"IntersectionObserver" in window){
   var cio=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){anim(e.target);cio.unobserve(e.target);}});},{threshold:.6});
   cs.forEach(function(el){cio.observe(el);});
 }else{cs.forEach(anim);}
-
-/* playground button feedback */
-var pb=document.getElementById("playBtn");
-if(pb){pb.addEventListener("click",function(){var l=document.documentElement.lang;pb.textContent=(I[l]&&I[l]["play.btnSoon"])||"⏳";pb.disabled=true;setTimeout(function(){pb.textContent=(I[l]&&I[l]["play.btn"])||"▶";pb.disabled=false;},1800);});}
 
 /* galleries */
 document.querySelectorAll("[data-gal]").forEach(function(g){
